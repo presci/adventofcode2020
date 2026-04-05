@@ -17,9 +17,9 @@ where
 contains::String  -> Bool
 contains xse = let passportdetail = words xse
                    mandatory = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
-                   ct = length $ filter (== True) $ [startsWith y x | x<- mandatory, y <- passportdetail]
+                   keys = map (takeWhile (/= ':')) passportdetail
                    in
-                       if ct == 7 then True else False
+                       all (`elem` keys) mandatory
 
 
 
