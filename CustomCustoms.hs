@@ -3,7 +3,7 @@ module CustomCustoms
 where
 
 import Data.List (sort, nub)
-== https://adventofcode.com/2020/day/6
+-- https://adventofcode.com/2020/day/6
 
 mylines :: [String] -> [String]
 mylines [] = []
@@ -15,5 +15,5 @@ mylines xs =
 customCustoms::IO()
 customCustoms = do
     contents <- readFile "customCustoms.txt"
-    let answers = sum $ map length $ map (sort . nub . (filter (/= ' ')) ) $ mylines $ lines contents
+    let answers = sum $ map (length . (sort . nub . filter (/= ' ')) ) $ mylines $ lines contents
     print answers
